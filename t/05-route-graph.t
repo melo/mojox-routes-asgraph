@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use Test::More 'no_plan';
+use Test::More tests => 1;
 
 use MojoX::Routes;
 use MojoX::Routes::AsGraph;
@@ -33,10 +33,7 @@ $home->route()->to( action => 'index' );
 $home->route('/profile')->to(action => 'profile');
 
 ### Ok, lets draw this
-my $g = MojoX::Routes::AsGraph->new;
-ok($g);
-
-my $graph = $g->graph($r);
+my $graph = MojoX::Routes::AsGraph->graph($r);
 is($graph->as_txt, <<'...');
 [  <empty 1> ] --> [  \[auth->sniff_user\] ]
 [  <empty 1> ] --> [ * '/' \[site->homepage\] (Homepage) ]

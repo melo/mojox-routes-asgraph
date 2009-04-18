@@ -2,12 +2,9 @@ package MojoX::Routes::AsGraph;
 
 use warnings;
 use strict;
-use base 'Mojo::Base';
 use Graph::Easy;
 
-
 our $VERSION = '0.01';
-
 
 sub graph {
   my ($self, $r) = @_;
