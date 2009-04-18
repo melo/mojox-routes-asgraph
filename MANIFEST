@@ -1,6 +1,7 @@
 Changes
 MANIFEST
 Makefile.PL
+META.yml
 README
 lib/MojoX/Routes/AsGraph.pm
 t/00-load.t
@@ -8,3 +9,14 @@ t/05-route-graph.t
 t/pod-coverage.t
 t/pod.t
 .gitignore
+inc/Module/AutoInstall.pm
+inc/Module/Install.pm
+inc/Module/Install/AutoInstall.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Can.pm
+inc/Module/Install/Fetch.pm
+inc/Module/Install/Include.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/Metadata.pm
+inc/Module/Install/Win32.pm
+inc/Module/Install/WriteAll.pm
