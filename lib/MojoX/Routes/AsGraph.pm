@@ -2,6 +2,64 @@ package MojoX::Routes::AsGraph;
 
 use warnings;
 use strict;
+use base 'Mojo::Base';
+use Graph::Easy;
+
+
+our $VERSION = '0.01';
+
+
+sub graph {
+  my ($self, $r) = @_;
+  return unless $r;
+  
+  my $g = Graph::Easy->new;
+  _new_node($g, $r, {});
+  
+  return $g;
+}
+
+sub _new_node {
+  my ($g, $r, $s) = @_;
+  
+  ### collect cool stuff
+  my $name = $r->name;
+  my $is_endpoint = $r->is_endpoint;
+  my $pattern = $r->pattern;
+
+  my $ctrl_actn;
+  if ($pattern) {
+    my $controller = $pattern->defaults->{controller};
+    my $action     = $pattern->defaults->{action};
+
+    $ctrl_actn = $controller || '';
+    $ctrl_actn .= "->$action" if $action;
+
+    $pattern    = $pattern->pattern;
+  }
+
+  ### Create node
+  my @node_name = ($is_endpoint? '*' : '');
+
+  if (!$pattern && !$ctrl_actn) {
+    my $n = ++$s->{empty};
+    push @node_name, "<empty $n>";
+  }
+  else {
+    push @node_name, "'$pattern'"    if $pattern;
+    push @node_name, "[$ctrl_actn]" if $ctrl_actn;
+  }
+  push @node_name, "($name)" if $name;
+  my $node = $g->add_node(join(' ', @node_name));
+  
+  ### Draw my children
+  for my $child (@{$r->children}) {
+    my $child_node = _new_node($g, $child, $s);
+    $g->add_edge($node, $child_node);
+  }
+  
+  return $node;  
+}
 
 =head1 NAME
 
@@ -10,11 +68,6 @@ MojoX::Routes::AsGraph - The great new MojoX::Routes::AsGraph!
 =head1 VERSION
 
 Version 0.01
-
-=cut
-
-our $VERSION = '0.01';
-
 
 =head1 SYNOPSIS
 
