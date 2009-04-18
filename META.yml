@@ -1,0 +1,23 @@
+---
+abstract: 'Create a graph from a MojoX::Routes object'
+author:
+  - 'Pedro Melo, C<< <melo at cpan.org> >>'
+build_requires:
+  Test::More: 0
+distribution_type: module
+generated_by: 'Module::Install version 0.79'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MojoX-Routes-AsGraph
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  Graph::Easy: 0
+resources:
+  license: http://dev.perl.org/licenses/
+  repository: http://github.com/melo/mojox-routes-asgraph/
+version: 0.01
