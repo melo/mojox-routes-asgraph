@@ -58,45 +58,55 @@ sub _new_node {
   return $node;  
 }
 
+
+1; # End of MojoX::Routes::AsGraph
+
+
+__END__
+
+=encoding utf8
+
 =head1 NAME
 
-MojoX::Routes::AsGraph - The great new MojoX::Routes::AsGraph!
+MojoX::Routes::AsGraph - Create a graph from a MojoX::Routes object
+
 
 =head1 VERSION
 
 Version 0.01
 
+
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
+Given a MojoX::Routes object, generates a Graph::Easy object with all
+the possible routes.
 
     use MojoX::Routes::AsGraph;
+    use My::Mojolicious::App;
+    
+    my $app   = My::Mojolicious::App->new;
+    my $graph = MojoX::Routes::AsGraph->graph($app->routes);
+    
+    ### $graph is a Graph::Easy object, generate a .dot file
+    if (open(my $dot, '>', 'routes.dot')) {
+      print $dot $graph->as_graphviz;
+      close($dot);
+    }
+    
+    ### or directly as a PNG file
+    if (open(my $png, '|-', 'dot -Tpng -o routes.png')) {
+      print $png $graph->as_graphviz;
+      close($png);
+    }
 
-    my $foo = MojoX::Routes::AsGraph->new();
-    ...
 
-=head1 EXPORT
+=head1 METHODS
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+=head2 $graph = graph($routes)
 
-=head1 FUNCTIONS
+Accepts a L<MojoX::Routes> object and generates an L<Graph::Easy> object
+with a representation of the routes tree.
 
-=head2 function1
-
-=cut
-
-sub function1 {
-}
-
-=head2 function2
-
-=cut
-
-sub function2 {
-}
 
 =head1 AUTHOR
 
@@ -107,8 +117,6 @@ Pedro Melo, C<< <melo at cpan.org> >>
 Please report any bugs or feature requests to C<bug-mojox-routes-asgraph at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MojoX-Routes-AsGraph>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
-
-
 
 
 =head1 SUPPORT
@@ -138,20 +146,16 @@ L<http://cpanratings.perl.org/d/MojoX-Routes-AsGraph>
 
 L<http://search.cpan.org/dist/MojoX-Routes-AsGraph/>
 
+=item * IRC
+
+Use the #mojo channel at FreeNode.
+
 =back
-
-
-=head1 ACKNOWLEDGEMENTS
 
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2009 Pedro Melo, all rights reserved.
+Copyright 2009 Pedro Melo.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
-
-
-=cut
-
-1; # End of MojoX::Routes::AsGraph
