@@ -7,3 +7,4 @@ t/00-load.t
 t/05-route-graph.t
 t/pod-coverage.t
 t/pod.t
+.gitignore
