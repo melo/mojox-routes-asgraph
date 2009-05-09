@@ -1,4 +1,8 @@
 Revision history for MojoX-Routes-AsGraph
 
+0.02    Sat May  9 12:56:47 UTC 2009
+        * Fixed PreReqs - missed Mojo
+        * Switched from Module::Install to Dist::Zilla
+
 0.01    Sat Apr 18 16:42:23 UTC 2009
         * First release
