@@ -4,11 +4,11 @@ use strict;
 use warnings;
 use Test::More tests => 1;
 
-use MojoX::Routes;
+use Mojolicious::Routes;
 use MojoX::Routes::AsGraph;
 
 ### The top level container
-my $r = MojoX::Routes->new;
+my $r = Mojolicious::Routes->new;
 
 ### A couple of simple paths
 $r->route('/')->to( controller => 'site', action => 'homepage')->name('Homepage' );
