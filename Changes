@@ -1,5 +1,8 @@
 Revision history for MojoX-Routes-AsGraph
 
+0.05    Mon Oct  5 06:11:10 UTC 2015
+        * Update to lastest Mojolicious (thx quicoju@github)
+
 0.04    Sat May  9 14:01:52 UTC 2009
         * Fixed version number in package
 
