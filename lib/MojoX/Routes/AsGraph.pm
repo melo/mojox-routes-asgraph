@@ -30,7 +30,7 @@ sub _new_node {
     $ctrl_actn = $controller || '';
     $ctrl_actn .= "->$action" if $action;
 
-    $pattern    = $pattern->pattern;
+    $pattern    = $pattern->unparsed;
   }
 
   ### Create node
