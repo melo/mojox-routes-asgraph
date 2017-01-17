@@ -1,5 +1,8 @@
 Revision history for MojoX-Routes-AsGraph
 
+0.07    Tue Jan 17 10:53:12 UTC 2017
+        * Fix CPANTS issues (thx manwar@github)
+
 0.06    Tue Jan 17 08:25:02 UTC 2017
         * Merge request to fix kwalitee (thx Kharec@github)
 
