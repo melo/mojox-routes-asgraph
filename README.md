@@ -2,7 +2,7 @@
 
 MojoX::Routes::AsGraph - Create a graph from a MojoX::Routes object
 
-**Synopsis**
+**SYNOPSIS**
 
 ~~~ perl
 use MojoX::Routes::AsGraph;
@@ -34,7 +34,7 @@ Accepts a MojoX::Routes object and generates an Graph::Easy object with a repres
 
 **BUGS**
 
-Please report any bugs or feature requests to bug-mojox-routes-asgraph at rt.cpan.org, or through the web interface at [CPANTS](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MojoX-Routes-AsGraph). 
+Please report any bugs or feature requests through the web interface at [GitHub](https://github.com/melo/mojox-routes-asgraph/issues). 
 I will be notified, and then you'll automatically be notified of progress on your bug as I make changes.
 
 **SUPPORT**
