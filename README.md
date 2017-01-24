@@ -41,7 +41,7 @@ I will be notified, and then you'll automatically be notified of progress on you
 
 You can find documentation for this module with the perldoc command.
 
-~~~ 
+~~~ perl
 
 perldoc MojoX::Routes::AsGraph
 ~~~ 
